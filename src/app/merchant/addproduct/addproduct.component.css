@@ -1,0 +1,15 @@
+.form-panel{
+    /* background-color: #eee; */
+    padding: 50px;
+}
+.mb{
+    background-color: #4ECDC4;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+.form-panel{
+    color: #1E1E1E;
+    font-weight: bolder;
+    font-size: 1.5em;
+}

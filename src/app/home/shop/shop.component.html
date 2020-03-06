@@ -1,0 +1,53 @@
+<section class="htc__product__area  bg__white" >
+    <div class="container">
+        <div class="htc__product__container">
+            <!-- Start Product MEnu -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product__menu">
+                        <button data-filter="*" class="is-checked">All</button>
+                        <button data-filter=".cat--furniture">Furnitures</button>
+                        <button data-filter=".cat--bags">Bags</button>
+                        <button data-filter=".cat--shoe">Shoe</button>
+                        <button data-filter=".cat--accessories">Accessories</button>
+                    </div>
+                </div>
+            </div>
+            <!-- End Product MEnu -->
+            <div class="row product__list">
+                <div *ngFor="let prod of products" class="proloop" style="margin:0em;padding: 0em;">
+                    <div class="col-md-3 single__pro col-lg-3 col-md-4 cat--{{prod.category}} col-sm-12">
+                        <div class="product foo">
+                            <div class="product__inner">
+                                <div class="pro__thumb">
+                                        <img src="assets/images/product/{{prod.image}}" alt="product images" width="255"
+                                            height="255"/>
+                                </div>
+                                <div class="product__hover__info">
+                                    <ul class="product__action">
+                                        <li><a data-toggle="modal" data-target="#productModal" title="Quick View"
+                                                class="quick-view modal-view detail-link" href="#"
+                                                (click)='setProductForQuickView(prod)'><span class="ti-plus"></span></a>
+                                        </li>
+                                        <li><a (click)='addToCart(prod)'> <span class="ti-shopping-cart" ></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="add__to__wishlist">
+                                    <a data-toggle="tooltip" title="Add To Wishlist" class="add-to-cart"
+                                        routerLink="wishlist"><span class="ti-heart"></span></a>
+                                </div>
+                            </div>
+                            <div class="product__details">
+                                <h2><a routerLink="productdetails">{{prod.productName}}</a></h2>
+                                <ul class="product__price">
+                                    <li class="old__price">{{prod.oldPrice}}/-</li>
+                                    <li class="new__price">{{prod.newPrice}}/-</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

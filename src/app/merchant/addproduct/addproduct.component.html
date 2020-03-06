@@ -1,0 +1,73 @@
+<div class="row">
+
+
+    <div class="col-lg-9">
+
+        <div class="form-panel">
+            <h2 class="mb">Add Product</h2>
+            <form #productForm="ngForm" (ngSubmit)='onCLickValue(productForm.value)'>
+                <div class="form-group">
+                    <label>Product ID:</label>
+                    <input type="text" class="form-control" id="product_id" placeholder="Enter Product ID"
+                        name="productId" ngModel>
+                </div>
+                <div class="form-group">
+                    <label>Product Name:</label>
+                    <input type="text" class="form-control" id="product_name" placeholder="Enter Product Name"
+                        name="productName" ngModel>
+                </div>
+                <div class="form-group">
+                    <label>Select Category:</label>
+                    <select class="form-control" id="category" name="category" value="hi" ngModel>
+                        <option>furniture</option>
+                        <option>bags</option>
+                        <option>shoe</option>
+                        <option>accessories</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Cost Price:</label>
+                            <input type="number" class="form-control" value="5000" id="cost_price"
+                                placeholder="Enter Cost Price" name="costPrice" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label>Old Price:</label>
+                            <input type="number" class="form-control" id="old_price" placeholder="Enter Old Price"
+                                name="oldPrice" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label>New Price:</label>
+                            <input type="number" class="form-control" id="new_price" placeholder="Enter New Price"
+                                name="newPrice" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity:</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Enter New Quantity"
+                                name="quantity" ngModel>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Image:</label>
+                            <br />
+                            <img [src]="imgUrl" alt="Image to upload"
+                                style="width: 256px;height:256px;border: 1px solid black;" /><br />
+                            <br />
+                            <input type="file" #Image accept="image/*" (change)="handleFileInput($event)"><br />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Details:</label>
+                    <textarea class="form-control" rows="5" id="comment" name="details" ngModel></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" style="padding:5px 10px;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
