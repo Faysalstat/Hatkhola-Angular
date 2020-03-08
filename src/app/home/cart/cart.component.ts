@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../../service.service';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Cart } from 'src/app/app.product';
 
 @Component({
@@ -32,12 +32,13 @@ export class CartComponent implements OnInit {
       this.service.loadScript(this.dynamicScripts);
       resolve(true);
   });
-    this.getList();
+    this.getCartList();
   }
 
-  getList(){
-    let params = new HttpParams().set("userid",this.service.user.id)
-    this.http.get<any>('http://localhost:8080/cart',{params: params}).subscribe(data => {
+   getCartList(){
+    let uid:string = this.service.user.id.toString();
+    console.log(this.service.user.id);
+    this.http.get<any>('http://localhost:8080/cart/getCart/'+this.service.user.id).subscribe(data => {
     console.log(data);
     this.cartlist= data;
     console.log(this.cartlist);

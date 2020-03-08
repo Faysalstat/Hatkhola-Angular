@@ -39,22 +39,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="assets/images/product/4.png" alt="product img" /></a></td>
-                                            <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                            <td class="product-price"><span class="amount">£165.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
+                                        <tr *ngFor="let cart of cartlist">
+                                            <td class="product-thumbnail"><a href="#"><img src="assets/images/product/{{cart.product.image}}" alt="product img" /></a></td>
+                                            <td class="product-name"><a href="#">{{cart.product.productName}}</a></td>
+                                            <td class="product-price"><span class="amount">{{cart.product.newPrice}}</span></td>
+                                            <td class="product-quantity"><input type="number" value="{{cart.quantity}}" /></td>
                                             <td class="product-subtotal">£165.00</td>
                                             <td class="product-remove"><a href="#">X</a></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <td class="product-thumbnail"><a href="#"><img src="assets/images/product/3.png" alt="product img" /></a></td>
                                             <td class="product-name"><a href="#">Vestibulum dictum magna</a></td>
                                             <td class="product-price"><span class="amount">£50.00</span></td>
                                             <td class="product-quantity"><input type="number" value="1" /></td>
                                             <td class="product-subtotal">£50.00</td>
                                             <td class="product-remove"><a href="#">X</a></td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>

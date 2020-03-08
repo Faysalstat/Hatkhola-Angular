@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
+import { FormBuilder } from '@angular/forms';
+import { User } from 'src/app/app.product';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +23,7 @@ export class LoginComponent implements OnInit {
     // "https://maps.googleapis.com/maps/api/js?key=AIzaSyBmGmeot5jcjdaJTvfCmQPfzeoG_pABeWo"
     
  ]
-  constructor( private service: ServiceService) {
+  constructor( private service: ServiceService,private http:HttpClient,private fb: FormBuilder) {
 
   }
   
@@ -29,6 +32,15 @@ export class LoginComponent implements OnInit {
       this.service.loadScript(this.dynamicScripts);
       resolve(true);
   });
+  }
+
+  checkLogin(loginForm:User){
+
+    // alert(loginForm.email);
+    this.http.post<any>('http://localhost:8080/user',loginForm).subscribe(data => {
+      alert(data.status);
+      console.log(data);
+    });
   }
 
 }

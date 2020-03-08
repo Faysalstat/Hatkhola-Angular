@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home.component';
@@ -19,7 +19,8 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
   declarations: [ProductsComponent, HomeComponent, SilderComponent, ShopComponent, CartComponent, LoginComponent, AboutComponent, ContactusComponent, CheckoutComponent, ProductdetailsComponent, WishlistComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

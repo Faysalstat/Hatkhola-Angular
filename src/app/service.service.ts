@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product, Cart, User } from './app.product';
+import { Product, Cart, User, Wishlist } from './app.product';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServiceService {
     user:User =  new User();
-    
+    cartlist:Cart[];
   constructor(private http:HttpClient) {
     this.user.id=1;
     this.user.customerId="u00001";
@@ -20,6 +20,8 @@ export class ServiceService {
 
   }
 
+
+  // Cart
   addToCart(product:Product){
     let cart:Cart = new Cart();
     cart.product=product;
@@ -27,6 +29,18 @@ export class ServiceService {
     cart.quantity=1;
     console.log(cart);
     this.http.post<any>("http://localhost:8080/cart",cart).subscribe(data => {
+    let response:any = data;
+    alert(data.status);
+    });
+    // this.cartControll.addToCart(prod);
+  }
+   // WishList
+   addToWishList(product:Product){
+    let wish:Wishlist = new Wishlist();
+    wish.product=product;
+    wish.customer = this.user;
+    console.log(wish);
+    this.http.post<any>("http://localhost:8080/wishlist",wish).subscribe(data => {
     let response:any = data;
     alert(data.status);
     });
@@ -43,8 +57,6 @@ export class ServiceService {
     }
   
     if (!isFound) {
-       
-  
         for (var i = 0; i < dynamicScripts.length; i++) {
             let node = document.createElement('script');
             node.src = dynamicScripts [i];

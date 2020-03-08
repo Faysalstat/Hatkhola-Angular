@@ -59,14 +59,14 @@ export class AddproductComponent implements OnInit {
     const fd = new FormData();
   
     fd.append("image", this.fileToUpload, this.fileToUpload.name)
-    this.http.post<any>("http://localhost:8080/upload", fd).subscribe(data => {
+    this.http.post<any>("http://localhost:8080/product/upload", fd).subscribe(data => {
       let response: any = data;
       console.log(response.iname);
       console.log(response.action);
       console.log(data.toString);
       productForm.image= response.iname;
       productForm.review = 0;
-      this.http.post<any>('http://localhost:8080/addproduct', productForm).subscribe(data => {
+      this.http.post<any>('http://localhost:8080/product', productForm).subscribe(data => {
       alert(data.status);
       console.log(data);
     });

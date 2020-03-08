@@ -10,13 +10,13 @@
         </div>
         <!-- Start Login Register Content -->
         <div class="row tab-content" >
-            <div class="col-md-6  ml-auto mr-auto" style="rgba(54, 25, 25, .04);">
+            <div class="col-md-6  ml-auto mr-auto">
                 <div class="htc__login__register__wrap">
                     <!-- Start Single Content -->
                     <div id="login" role="tabpanel" class="single__tabs__panel tab-pane active">
-                        <form class="login" method="post">
-                            <input type="text" placeholder="User Name*">
-                            <input type="password" placeholder="Password*">
+                        <form #loginForm="ngForm" class="login" >
+                            <input type="text" placeholder="Email*" name="email" ngModel/>
+                            <input type="password" placeholder="Password*" name="password" ngModel/>
                         </form>
                         <div class="tabs__checkbox">
                             <input type="checkbox">
@@ -24,7 +24,7 @@
                             <span class="forget"><a href="#">Forget Pasword?</a></span>
                         </div>
                         <div class="htc__login__btn mt--30">
-                            <a href="#">Login</a>
+                            <a  (click)="checkLogin(loginForm.value)">Login</a>
                         </div>
                         <div class="htc__social__connect">
                             <h2>Or Login With</h2>
@@ -42,7 +42,7 @@
                     <!-- End Single Content -->
                     <!-- Start Single Content -->
                     <div id="register" role="tabpanel" class="single__tabs__panel tab-pane">
-                        <form class="login" method="post">
+                        <form  class="login" method="post">
                             <input type="text" placeholder="Name*">
                             <input type="email" placeholder="Email*">
                             <input type="password" placeholder="Password*">

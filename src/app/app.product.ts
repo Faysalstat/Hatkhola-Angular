@@ -9,6 +9,12 @@ export class Cart{
     public quantity:number;
 }
 
+export class Wishlist{
+    public id:number;
+    public product:Product;
+    public customer:User;
+}
+
 export class Product {
     public id:number;
     public productId:string;
@@ -25,9 +31,10 @@ export class Product {
 }
 
 export class User{
-    public id:number;
+    public  id:number;
     public  customerId:string;
     public  customerName:string;
     public  contactNo:string;
-    public  email:string;   
+    public  email:string;
+    public  password:string;   
 }

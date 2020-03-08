@@ -38,7 +38,7 @@ export class ShopComponent implements OnInit {
 
   }
   getList(){
-      this.http.get<Product[]>('http://localhost:8080/productlist').subscribe(data => {
+      this.http.get<Product[]>('http://localhost:8080/product').subscribe(data => {
       console.log(data);
        this.products= data;
        console.log(this.products);
@@ -52,6 +52,10 @@ export class ShopComponent implements OnInit {
 
   addToCart(product:Product){
     this.service.addToCart(product);
+  }
+  
+  addToWishList(product:Product){
+    this.service.addToWishList(product);
   }
 
 }
